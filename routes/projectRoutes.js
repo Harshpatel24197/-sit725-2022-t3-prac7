@@ -1,6 +1,6 @@
 var express = require("express")
 var router = express.Router();
-let controller = require("../controller/projectController")
+let controller = require("../controller/projectController");
 //  let projectCollection;
 // setTimeout(()=>{
 //     projectCollection = client.mongoClient.db().collection("Projects");
@@ -13,7 +13,7 @@ let controller = require("../controller/projectController")
 // }
 
 router.post('/',(req,res)=>{
-    controller.projectController.createProject(req,res)
+    controller.createProject(req,res)
     // console.log("Your Data", req.body)
     // var newproject = req.body;
     // insertprojects(newproject,(err,result)=>{
@@ -27,7 +27,7 @@ router.post('/',(req,res)=>{
     // })
 })
 router.get('/',(req,res) => {
-    controller.projectController.RetrieveProject(req,res)
+    controller.RetrieveProject(req,res)
 
     // getProjects((err, result)=>{
     //     if(err)
