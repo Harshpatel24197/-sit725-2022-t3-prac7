@@ -12,6 +12,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 app.use('/api/projects', projectRoutes)
+app.get('/Add/:Numberone/:Numbertwo', function(req, res, next)
+{
+    var firstnumber = parseInt(req.params.Numberone)
+    var secondnumber = parseInt(req.params.Numbertwo)
+    var result = firstnumber + secondnumber || null
+    if (result == null)
+    {
+        res.json({result: result, statusCode: 400}).status(400)
+    }
+    else{
+        res.json({result: result, statusCode: 200}).status(200)
+    }
+
+})
 // connection with mongodb
 //const Mongoclient = require("mongodb").MongoClient
 // adding it with mongodb
@@ -64,7 +78,7 @@ app.use('/api/projects', projectRoutes)
 //         }
 //     })
 // })
-var port = process.env.port || 3000;
+var port = process.env.port || 8080;
 
 app.listen(port,()=>{
     console.log("App listening to: "+port)

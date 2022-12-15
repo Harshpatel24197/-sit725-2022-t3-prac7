@@ -1,5 +1,5 @@
 {
-  "name": "sit725-2022-prac-test-5",
+  "name": "sit725-2022-t3-prac6",
   "version": "1.0.0",
   "description": "Practical3",
   "main": "index.js",
@@ -65,11 +65,12 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test" : "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Harshpatel24197/sit725-2022-t3-prac5"
+    "url": "git+https://github.com/Harshpatel24197/sit725-2022-t3-prac6"
   },
   "keywords": [
     "Node",
@@ -78,7 +79,7 @@
   "author": "Harsh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Harshpatel24197/sit725-2022-t3-prac5issues"
+    "url": "https://github.com/Harshpatel24197/sit725-2022-t3-prac6issues"
   },
-  "homepage": "https://github.com/Harshpatel24197/sit725-2022-t3-prac5#readme"
+  "homepage": "https://github.com/Harshpatel24197/sit725-2022-t3-prac6#readme"
 }
