@@ -7,6 +7,9 @@ const { MongoClient } = require("mongodb");
 let projectCollection;
 let projectRoutes = require("./routes/projectRoutes")
 
+let http = require('http').createServer(app);
+let io = require('socket.io')(http);
+
 app.use(express.static(__dirname+'/public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +29,16 @@ app.get('/Add/:Numberone/:Numbertwo', function(req, res, next)
     }
 
 })
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  setInterval(()=>{
+    socket.emit('number', parseInt(Math.random()*10));
+  }, 1000);
+});
 // connection with mongodb
 //const Mongoclient = require("mongodb").MongoClient
 // adding it with mongodb
@@ -78,9 +91,9 @@ app.get('/Add/:Numberone/:Numbertwo', function(req, res, next)
 //         }
 //     })
 // })
-var port = process.env.port || 8080;
+var port = process.env.port || 3000;
 
-app.listen(port,()=>{
+http.listen(port,()=>{
     console.log("App listening to: "+port)
     //createCollection("nature")
 })
